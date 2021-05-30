@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="final.css">
+    <title>FINAL UI UX</title>
+</head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+<body>
+<p id="text">copying this text</p>
+<button id="copy" onclick="copyText">copy text</button>
+
+
+
+</body>
+
+<!--code to copy text-->
+<script type="text/javascript">
+
+function copyText(htmlElement)
+{
+    if(!htmlElement)
+    {
+        return;
+    }
+
+    let elementText = htmlElement.innerText;
+    let inputElement = document.createElement('input');
+    inputElement.setAttribute('value',elementText);
+    document.body.appendChild(inputElement);
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.parentNode.removeChild(inputElement);
+
+}
+document.querySelector('#copy').onclick = 
+function()
+{
+    copyText(document.querySelector('#text'));
+}
+
+</script>
+
+
+</html>
